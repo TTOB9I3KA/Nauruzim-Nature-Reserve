@@ -1,0 +1,428 @@
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: rgb(226, 222, 222);
+}
+
+.bac-img {
+	width: 100%;
+	border-bottom: 5px solid black;
+}
+
+.header--nav {
+	background-color: rgb(180, 228, 255);
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-right: 140px;
+	border-bottom: 3px solid black;
+}
+
+.tree {
+	margin-left: 50px;
+	width: 60px;
+}
+
+nav > a {
+	text-decoration: none;
+	text-align: center;
+	color: black;
+}
+
+.nav--main {
+	display: flex;
+	gap: 20px;
+	font-size: 28px;
+}
+
+.main {
+	transition: 500ms;
+}
+
+.main:hover {
+	background-color: rgb(255, 204, 95);
+	width: 170px;
+	transition: 300ms;
+	border-radius: 15px;
+}
+
+.main__data {
+	background-color: rgb(180, 228, 255);
+}
+
+#h1 {
+	text-align: center;
+	position: relative;
+	bottom: 75px;
+}
+
+#history {
+	height: 700px;
+	padding-bottom: 150px;
+	border-bottom: 3px solid black;
+}
+
+.history {
+	position: relative;
+	top: 150px;
+}
+
+.history > p {
+	margin-left: 20px;
+	padding: 50px 30px;
+	width: 50%;
+	float: left;
+	font-size: 25px;
+	background-color: rgb(255, 255, 255);
+	border: 3px solid black;
+	border-radius: 20px;
+	font-weight: 800;
+}
+
+.img {
+	position: relative;
+	left: 150px;
+	border-radius: 20px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+#tourism {
+	height: 700px;
+	border-bottom: 3px solid black;
+}
+
+.tourism {
+	font-size: 25px;
+	font-weight: 800;
+	position: relative;
+	top: 75px;
+}
+
+h2 {
+	text-align: center;
+}
+
+.tourism > ol,
+.tourism > ul {
+	display: flex;
+	line-height: 1.5;
+}
+
+ol {
+	padding-left: 130px;
+}
+
+ul {
+	width: 500px;
+	text-align: center;
+	margin-top: 100px;
+	background-color: rgb(255, 255, 255);
+	border: 3px solid black;
+	border-radius: 20px;
+}
+
+li {
+	list-style-type: none;
+}
+
+ol > li {
+	background-color: rgb(255, 255, 255);
+	height: 50px;
+	width: 300px;
+	text-align: center;
+	border: 3px solid black;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+#regist {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 700px;
+}
+
+.main--footer {
+	text-align: center;
+	padding-top: 60px;
+}
+
+h3 {
+	font-size: 28px;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	background: url('your-background-image.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+.form--box {
+	position: relative;
+	width: 400px;
+	height: 600px;
+	padding: 30px;
+	background: rgba(158, 146, 146, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+	font-size: 2em;
+	color: aliceblue;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.inputbox {
+	position: relative;
+	width: 100%;
+	margin: 20px 0;
+	border-bottom: 2px solid white;
+}
+
+.inputbox input {
+	width: 100%;
+	padding: 10px 5px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: aliceblue;
+	font-size: 1em;
+}
+
+.inputbox label {
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	color: aliceblue;
+	font-size: 1em;
+	pointer-events: none;
+	transition: 0.3s;
+}
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+	top: -10px;
+	left: 0;
+	font-size: 0.8em;
+	color: #ff9800;
+}
+
+.forget {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: aliceblue;
+	margin: 20px 0;
+}
+
+.forget a {
+	color: aliceblue;
+	text-decoration: none;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	background: #ff9800;
+	color: white;
+	font-size: 1em;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+button:hover {
+	background: #e68900;
+}
+
+.registr {
+	margin-top: 20px;
+	color: aliceblue;
+}
+
+.registr a {
+	color: #ff9800;
+	text-decoration: none;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+	.header--nav {
+			flex-direction: column;
+			height: auto;
+			padding-right: 20px;
+	}
+
+	.nav--main {
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			font-size: 24px;
+	}
+
+	.history > p {
+			width: 90%;
+			margin: 20px auto;
+			float: none;
+	}
+
+	.img {
+			left: 0;
+			margin: 20px auto;
+	}
+
+	.tourism > ul, .tourism > ol {
+			flex-direction: column;
+			align-items: center;
+			padding-left: 0;
+	}
+
+	ol > li {
+			width: 90%;
+			margin: 10px 0;
+	}
+
+	ul {
+			width: 90%;
+			margin: 20px auto;
+	}
+
+	.form--box {
+			width: 90%;
+			height: auto;
+			padding: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.header--nav {
+			padding-right: 10px;
+	}
+
+	.nav--main {
+			font-size: 20px;
+	}
+
+	.history {
+			top: 50px;
+	}
+
+	.history > p {
+			font-size: 20px;
+	}
+
+	.tourism {
+			top: 30px;
+			font-size: 20px;
+	}
+
+	.tourism > ul, .tourism > ol {
+			font-size: 18px;
+	}
+
+	ol > li {
+			font-size: 18px;
+	}
+
+	ul {
+			font-size: 18px;
+	}
+
+	.form--box {
+			width: 100%;
+			height: auto;
+			padding: 15px;
+	}
+
+	.form--box h3 {
+			font-size: 1.5em;
+	}
+
+	.inputbox input {
+			font-size: 0.9em;
+	}
+
+	.inputbox label {
+			font-size: 0.9em;
+	}
+
+	button {
+			font-size: 0.9em;
+	}
+
+	.registr {
+			font-size: 0.9em;
+	}
+}
+
+@media (max-width: 480px) {
+	.header--nav {
+			padding-right: 5px;
+	}
+
+	.li {
+		max-width: 380px;
+	}
+	.nav--main {
+			font-size: 13px;
+	}
+
+	.history > p {
+			font-size: 13px;
+			padding: 20px;
+	}
+
+	.tourism {
+			font-size: 18px;
+	}
+
+	.tourism > ul, .tourism > ol {
+			font-size: 13px;
+	}
+
+	ol > li {
+			font-size: 13px;
+	}
+
+	ul {
+			font-size: 13px;
+	}
+
+	.form--box {
+			padding: 10px;
+	}
+
+	.form--box h3 {
+			font-size: 1.2em;
+	}
+
+	.inputbox input {
+			font-size: 0.8em;
+	}
+}

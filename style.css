@@ -4,9 +4,7 @@ html {
 	scroll-behavior: smooth;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
 	box-sizing: inherit;
 	margin: 0;
 	padding: 0;
@@ -18,17 +16,17 @@ body {
 
 .bac-img {
 	width: 100%;
-	border-bottom: 5px solid black;
+	object-fit: cover;
 }
 
 .header--nav {
-	background-color: rgb(180, 228, 255);
+	background-color: rgb(217, 221, 223);
 	height: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding-right: 140px;
-	border-bottom: 3px solid black;
+	
 }
 
 .tree {
@@ -44,6 +42,7 @@ nav > a {
 
 .nav--main {
 	display: flex;
+	padding-left: 60px;
 	gap: 20px;
 	font-size: 28px;
 }
@@ -59,9 +58,53 @@ nav > a {
 	border-radius: 15px;
 }
 
-.main__data {
-	background-color: rgb(180, 228, 255);
+.header--main {
+	position: relative;
+	width: 100%; 
+	height: auto; 
 }
+
+#kaz {
+	position: absolute;
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%, -50%); /* Сдвигаем текст на половину его собственной ширины и высоты, чтобы он оставался в центре */
+	color: rgb(240, 231, 241);
+	font-size: 48px;
+	text-transform: uppercase;
+}
+
+#one-word {
+	padding-left: 50%;
+}
+
+#two-word {
+	padding-left: 25%; 
+}
+
+.bac-img {
+	width: 100%;
+	height: auto;
+}
+
+/* #one-word {
+	padding-left: 50%;
+}
+
+#two-word {
+	padding-left: 25%;
+}
+
+#kaz {
+	position: absolute;
+	top: 105%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgb(240, 231, 241);
+	font-size: 48px;
+	text-transform: uppercase;
+} */
+
 
 #h1 {
 	text-align: center;
@@ -70,9 +113,10 @@ nav > a {
 }
 
 #history {
+	background-color: rgb(207, 210, 212);
 	height: 700px;
 	padding-bottom: 150px;
-	border-bottom: 3px solid black;
+
 }
 
 .history {
@@ -85,9 +129,7 @@ nav > a {
 	padding: 50px 30px;
 	width: 50%;
 	float: left;
-	font-size: 25px;
-	background-color: rgb(255, 255, 255);
-	border: 3px solid black;
+	font-size: 5px;
 	border-radius: 20px;
 	font-weight: 800;
 }
@@ -102,14 +144,11 @@ nav > a {
 
 #tourism {
 	height: 700px;
-	border-bottom: 3px solid black;
 }
 
 .tourism {
 	font-size: 25px;
 	font-weight: 800;
-	position: relative;
-	top: 75px;
 }
 
 h2 {
@@ -131,22 +170,25 @@ ul {
 	text-align: center;
 	margin-top: 100px;
 	background-color: rgb(255, 255, 255);
-	border: 3px solid black;
 	border-radius: 20px;
 }
 
 li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 ol > li {
-	background-color: rgb(255, 255, 255);
-	height: 50px;
+  background-color: rgb(255, 255, 255);
+  height: 50px;
 	width: 300px;
-	text-align: center;
-	border: 3px solid black;
-	border-radius: 20px;
-	cursor: pointer;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Added this rule to make the ul elements inside ol list items appear below */
+.tourism li + ul {
+  margin-top: 20px;
 }
 
 #regist {
@@ -154,6 +196,7 @@ ol > li {
 	align-items: center;
 	justify-content: center;
 	height: 700px;
+	background-color: rgb(235, 231, 231);
 }
 
 .main--footer {
@@ -168,7 +211,7 @@ h3 {
 section {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	padding-top: 100px;
 	min-height: 100vh;
 	width: 100%;
 	background: url('your-background-image.jpg') no-repeat center center;
@@ -180,7 +223,7 @@ section {
 	width: 400px;
 	height: 600px;
 	padding: 30px;
-	background: rgba(158, 146, 146, 0.3);
+	background: rgba(113, 111, 111, 0.3);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -246,6 +289,7 @@ h3 {
 	text-decoration: none;
 }
 
+
 button {
 	width: 100%;
 	padding: 10px;
@@ -272,52 +316,127 @@ button:hover {
 }
 
 /* Медиа-запросы для адаптивности */
-@media (max-width: 1200px) {
-	.header--nav {
-			flex-direction: column;
-			height: auto;
-			padding-right: 20px;
+
+/* Большие мониторы */
+@media (min-width: 1200px) {
+	html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 	}
 
-	.nav--main {
-			flex-direction: column;
-			align-items: center;
-			gap: 10px;
-			font-size: 24px;
+	.header {
+		max-width: 100%;
 	}
 
 	.history > p {
-			width: 90%;
-			margin: 20px auto;
-			float: none;
+		margin-left: 120px;
+		padding: 50px 30px;
+		width: 40%;
+		float: left;
+		font-size: 5px;
+		border-radius: 20px;
+		font-weight: 800;
+	  height: auto;
+  	transform: skew(-10deg);
+	}
+	
+	.nav--main {
+		font-size: 20px;
+	}
+
+	.history > p {
+		font-size: 14px;
 	}
 
 	.img {
-			left: 0;
-			margin: 20px auto;
+		max-width: 500px;
+		position: relative;
+		border-radius: 25px;
+		z-index: 1;
+		cursor: pointer;
+		transform: skew(-10deg)
 	}
 
-	.tourism > ul, .tourism > ol {
-			flex-direction: column;
-			align-items: center;
-			padding-left: 0;
+	section {
+		display: flex;
+		justify-content: center;
+		padding-top: 50px;
+		min-height: 100vh;
+		width: 100%;
+		background: url('your-background-image.jpg') no-repeat center center;
+		background-size: cover;
 	}
 
-	ol > li {
-			width: 90%;
-			margin: 10px 0;
+	#tourism {
+		height: 700px;
 	}
 
+	.tourism {
+		font-size: 15px;
+		font-weight: 800;
+	}
+	
+	h2 {
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.tourism > ol,
+	.tourism > ul {
+		display: flex;
+		line-height: 1.5;
+	}
+
+	.ol {
+		display: flex;
+		flex-direction: row;
+		padding-top: 60px;
+	}
+
+	ol {
+		padding-top: 50px;
+		padding-left: 40px;
+	}
+	
 	ul {
-			width: 90%;
-			margin: 20px auto;
+
+		padding-top: 20px;
+		height: 200px;
+		width: 250px;
+		text-align: center;
+		background-color: rgb(255, 255, 255);
+		border-radius: 20px;
+	}
+	
+	.li--2 {
+		margin-top: 75px;
 	}
 
-	.form--box {
-			width: 90%;
-			height: auto;
-			padding: 20px;
+	.li--3 {
+		margin-top: 150px;
 	}
+
+	.li {
+		margin-left: 20px;
+		padding-top: 12px;
+	}
+
+	li {
+		list-style-type: none;
+	}
+	
+	ol > li {
+		background-color: rgb(255, 255, 255);
+		height: 50px;
+		width: 200px;
+		text-align: center;
+
+		border-radius: 20px;
+		cursor: pointer;
+	}
+
 }
 
 @media (max-width: 768px) {
@@ -335,6 +454,8 @@ button:hover {
 
 	.history > p {
 			font-size: 20px;
+			padding: 20px;
+			width: 70%; /* Увеличено для лучшего отображения на планшетах */
 	}
 
 	.tourism {
@@ -355,7 +476,7 @@ button:hover {
 	}
 
 	.form--box {
-			width: 100%;
+			width: 100%; /* Увеличено для лучшего отображения на планшетах */
 			height: auto;
 			padding: 15px;
 	}
@@ -379,16 +500,14 @@ button:hover {
 	.registr {
 			font-size: 0.9em;
 	}
-}
+} 
 
+/* Телефоны */
 @media (max-width: 480px) {
 	.header--nav {
 			padding-right: 5px;
 	}
 
-	.li {
-		max-width: 380px;
-	}
 	.nav--main {
 			font-size: 13px;
 	}
@@ -399,7 +518,7 @@ button:hover {
 	}
 
 	.tourism {
-			font-size: 18px;
+			font-size: 13px;
 	}
 
 	.tourism > ul, .tourism > ol {
@@ -423,6 +542,18 @@ button:hover {
 	}
 
 	.inputbox input {
+			font-size: 0.8em;
+	}
+
+	.inputbox label {
+			font-size: 0.8em;
+	}
+
+	button {
+			font-size: 0.8em;
+	}
+
+	.registr {
 			font-size: 0.8em;
 	}
 }

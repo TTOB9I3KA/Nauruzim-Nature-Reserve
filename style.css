@@ -171,6 +171,103 @@ ol > li {
 .tourism li + ul {
   margin-top: 20px;
 }
+
+
+#sign--up {
+	background-color: rgb(223, 228, 231);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.form--box {
+	margin-top: 150px;
+	margin-bottom: 150px;
+  width: 400px;
+  padding: 30px;
+  background: rgba(188, 194, 218, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.884);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-size: 2em;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.inputbox {
+  position: relative;
+	width: 100%;
+	margin: 20px 0;
+  border-bottom: 2px solid white;
+}
+
+.inputbox input {
+  width: 100%;
+  padding: 10px 5px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  font-size: 1em;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 0%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0);
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input__box > label { 
+	padding-bottom: 20px;
+
+}
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+  font-size: 0.8em;
+  color: #ff9800;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #ff9800;
+  color: rgb(0, 0, 0);
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #e68900;
+}
+
+.registr {
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.registr a {
+  color: #ff9800;
+  text-decoration: none;
+}
+
 /* Медиа-запросы для адаптивности */
 
 /* Большие мониторы */
@@ -379,15 +476,6 @@ ol > li {
 		background-color: rgb(255, 255, 255);
 		border-radius: 20px;
 	}
-	
-
-	.li--2 {
-		margin-top: 75px;
-	}
-
-	.li--3 {
-		margin-top: 150px;
-	}
 
 	.li {
 		margin-left: 20px;
@@ -405,32 +493,6 @@ ol > li {
 	text-align: center;
 	border-radius: 20px;
 	cursor: pointer;
-	}
-
-	.form--box {
-		width: 100%; /* Увеличено для лучшего отображения на планшетах */
-		height: auto;
-		padding: 15px;
-	}
-
-	.form--box h3 {
-		font-size: 1.5em;
-	}
-
-	.inputbox input {
-		font-size: 0.9em;
-	}
-
-	.inputbox label {
-		font-size: 0.9em;
-	}
-
-	button {
-		font-size: 0.9em;
-	}
-
-	.registr {
-		font-size: 0.9em;
 	}
 } 
 
@@ -551,27 +613,6 @@ ol > li {
 
 	.form--box {
 		width: 400px; /* Увеличено для лучшего отображения на планшетах */
-		height: 400px;
-		padding: 15px;
-	}
-
-	.form--box h3 {
-		font-size: 1.5em;
-	}
-
-	.inputbox input {
-		font-size: 0.9em;
-	}
-
-	.inputbox label {
-		font-size: 0.9em;
-	}
-
-	button {
-		font-size: 0.9em;
-	}
-
-	.registr {
-		font-size: 0.9em;
+		height: 500px;
 	}
 } 

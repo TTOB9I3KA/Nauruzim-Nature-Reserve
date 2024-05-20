@@ -66,9 +66,9 @@ nav > a {
 
 #kaz {
 	position: absolute;
-	top: 50%; 
+	top: 55%; 
 	left: 50%; 
-	transform: translate(-50%, -50%); /* Сдвигаем текст на половину его собственной ширины и высоты, чтобы он оставался в центре */
+	transform: translate(-50%, -50%);
 	color: rgb(240, 231, 241);
 	font-size: 48px;
 	text-transform: uppercase;
@@ -86,25 +86,6 @@ nav > a {
 	width: 100%;
 	height: auto;
 }
-
-/* #one-word {
-	padding-left: 50%;
-}
-
-#two-word {
-	padding-left: 25%;
-}
-
-#kaz {
-	position: absolute;
-	top: 105%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: rgb(240, 231, 241);
-	font-size: 48px;
-	text-transform: uppercase;
-} */
-
 
 #h1 {
 	text-align: center;
@@ -126,7 +107,7 @@ nav > a {
 
 .history > p {
 	margin-left: 20px;
-	padding: 50px 30px;
+	font-size: 20px;
 	width: 50%;
 	float: left;
 	font-size: 5px;
@@ -190,131 +171,6 @@ ol > li {
 .tourism li + ul {
   margin-top: 20px;
 }
-
-#regist {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 700px;
-	background-color: rgb(235, 231, 231);
-}
-
-.main--footer {
-	text-align: center;
-	padding-top: 60px;
-}
-
-h3 {
-	font-size: 28px;
-}
-
-section {
-	display: flex;
-	justify-content: center;
-	padding-top: 100px;
-	min-height: 100vh;
-	width: 100%;
-	background: url('your-background-image.jpg') no-repeat center center;
-	background-size: cover;
-}
-
-.form--box {
-	position: relative;
-	width: 400px;
-	height: 600px;
-	padding: 30px;
-	background: rgba(113, 111, 111, 0.3);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-h3 {
-	font-size: 2em;
-	color: aliceblue;
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-.inputbox {
-	position: relative;
-	width: 100%;
-	margin: 20px 0;
-	border-bottom: 2px solid white;
-}
-
-.inputbox input {
-	width: 100%;
-	padding: 10px 5px;
-	background: transparent;
-	border: none;
-	outline: none;
-	color: aliceblue;
-	font-size: 1em;
-}
-
-.inputbox label {
-	position: absolute;
-	top: 50%;
-	left: 10px;
-	transform: translateY(-50%);
-	color: aliceblue;
-	font-size: 1em;
-	pointer-events: none;
-	transition: 0.3s;
-}
-
-.inputbox input:focus ~ label,
-.inputbox input:valid ~ label {
-	top: -10px;
-	left: 0;
-	font-size: 0.8em;
-	color: #ff9800;
-}
-
-.forget {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: aliceblue;
-	margin: 20px 0;
-}
-
-.forget a {
-	color: aliceblue;
-	text-decoration: none;
-}
-
-
-button {
-	width: 100%;
-	padding: 10px;
-	border: none;
-	background: #ff9800;
-	color: white;
-	font-size: 1em;
-	cursor: pointer;
-	transition: background 0.3s;
-}
-
-button:hover {
-	background: #e68900;
-}
-
-.registr {
-	margin-top: 20px;
-	color: aliceblue;
-}
-
-.registr a {
-	color: #ff9800;
-	text-decoration: none;
-}
-
 /* Медиа-запросы для адаптивности */
 
 /* Большие мониторы */
@@ -332,7 +188,7 @@ button:hover {
 
 	.history > p {
 		margin-left: 120px;
-		padding: 50px 30px;
+		padding: 10px 30px;
 		width: 40%;
 		float: left;
 		font-size: 5px;
@@ -340,14 +196,11 @@ button:hover {
 		font-weight: 800;
 	  height: auto;
   	transform: skew(-10deg);
+		font-size: 20px;
 	}
 	
 	.nav--main {
 		font-size: 20px;
-	}
-
-	.history > p {
-		font-size: 14px;
 	}
 
 	.img {
@@ -365,7 +218,6 @@ button:hover {
 		padding-top: 50px;
 		min-height: 100vh;
 		width: 100%;
-		background: url('your-background-image.jpg') no-repeat center center;
 		background-size: cover;
 	}
 
@@ -401,15 +253,15 @@ button:hover {
 	}
 	
 	ul {
-
-		padding-top: 20px;
-		height: 200px;
-		width: 250px;
+		padding-top: 50px;
+		height: 300px;
+		width: 400px;
 		text-align: center;
 		background-color: rgb(255, 255, 255);
 		border-radius: 20px;
 	}
 	
+
 	.li--2 {
 		margin-top: 75px;
 	}
@@ -432,128 +284,294 @@ button:hover {
 		height: 50px;
 		width: 200px;
 		text-align: center;
-
 		border-radius: 20px;
 		cursor: pointer;
 	}
 
 }
 
-@media (max-width: 768px) {
-	.header--nav {
-			padding-right: 10px;
+@media (min-width: 768px) and (max-width:1199px){
+	html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 	}
 
+	#kaz {
+		position: absolute;
+		top: 50%; 
+		left: 50%; 
+		transform: translate(-60%, -50%); /* Сдвигаем текст на половину его собственной ширины и высоты, чтобы он оставался в центре */
+		color: rgb(240, 231, 241);
+		font-size: 28px;
+		text-transform: uppercase;
+	}
+	
+	#one-word {
+		padding-left: 50%;
+	}
+	
+	#two-word {
+		padding-left: 25%; 
+	}
+
+	
 	.nav--main {
-			font-size: 20px;
+		font-size: 15px;
 	}
-
-	.history {
-			top: 50px;
-	}
-
+/* /////////////////////////////////// */
 	.history > p {
-			font-size: 20px;
-			padding: 20px;
-			width: 70%; /* Увеличено для лучшего отображения на планшетах */
+		width: 400px;
+		font-weight: 800;
+		font-size: 14px;
+	}
+
+	.img {
+		max-width: 300px;
+		position: relative;
+		left: 70px;
+		top: 25px;
+		border-radius: 25px;
+		z-index: 1;
+		cursor: pointer;
+		transform: skew(-10deg)
+	}
+
+
+/*////////////////////////////////////////////////////////*/
+	#tourism {
+		height: 700px;
 	}
 
 	.tourism {
-			top: 30px;
-			font-size: 20px;
+		font-size: 15px;
+		font-weight: 800;
+	}
+	
+	h2 {
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.tourism > ol,
+	.tourism > ul {
+		display: flex;
+		line-height: 1.5;
 	}
 
-	.tourism > ul, .tourism > ol {
-			font-size: 18px;
+	.ol {
+		display: flex;
+		flex-direction: row;
+		padding-top: 60px;
 	}
 
-	ol > li {
-			font-size: 18px;
+	ol {
+		padding-top: 50px;
+		padding-left: 40px;
 	}
-
+	
 	ul {
-			font-size: 18px;
+		padding-top: 50px;
+		height: 400px;
+		width: 200px;
+		text-align: center;
+		background-color: rgb(255, 255, 255);
+		border-radius: 20px;
+	}
+	
+
+	.li--2 {
+		margin-top: 75px;
+	}
+
+	.li--3 {
+		margin-top: 150px;
+	}
+
+	.li {
+		margin-left: 20px;
+		padding-top: 12px;
+	}
+
+	li {
+		list-style-type: none;
+	}
+	
+	ol > li {
+	background-color: rgb(255, 255, 255);
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
 	}
 
 	.form--box {
-			width: 100%; /* Увеличено для лучшего отображения на планшетах */
-			height: auto;
-			padding: 15px;
+		width: 100%; /* Увеличено для лучшего отображения на планшетах */
+		height: auto;
+		padding: 15px;
 	}
 
 	.form--box h3 {
-			font-size: 1.5em;
+		font-size: 1.5em;
 	}
 
 	.inputbox input {
-			font-size: 0.9em;
+		font-size: 0.9em;
 	}
 
 	.inputbox label {
-			font-size: 0.9em;
+		font-size: 0.9em;
 	}
 
 	button {
-			font-size: 0.9em;
+		font-size: 0.9em;
 	}
 
 	.registr {
-			font-size: 0.9em;
+		font-size: 0.9em;
 	}
 } 
 
 /* Телефоны */
-@media (max-width: 480px) {
-	.header--nav {
-			padding-right: 5px;
+@media (max-width: 480px){
+	html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 	}
 
+	#kaz {
+		position: absolute;
+		top: 50%; 
+		left: 55%; 
+		transform: translate(-60%, -50%); /* Сдвигаем текст на половину его собственной ширины и высоты, чтобы он оставался в центре */
+		color: rgb(240, 231, 241);
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+	
+	#one-word {
+		padding-left: 50%;
+	}
+	
+	#two-word {
+		padding-left: 25%; 
+	}
+
+	
 	.nav--main {
-			font-size: 13px;
+		margin-left: 70px;
+		font-size: 12px;
+	}
+/* /////////////////////////////////// */
+	.history > p {
+		width: 400px;
+		font-weight: 800;
+		font-size: 14px;
 	}
 
-	.history > p {
-			font-size: 13px;
-			padding: 20px;
+	.img {
+		max-width: 200px;
+		position: relative;
+		left: 100px;
+		top: 55px;
+		border-radius: 25px;
+		z-index: 1;
+		cursor: pointer;
+		transform: skew(-10deg)
+	}
+
+
+/*////////////////////////////////////////////////////////*/
+	#tourism {
+		height: auto;
 	}
 
 	.tourism {
-			font-size: 13px;
+		font-size: 15px;
+		font-weight: 800;
+	}
+	
+	h2 {
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.tourism > ol,
+	.tourism > ul {
+		display: flex;
+		line-height: 1.5;
 	}
 
-	.tourism > ul, .tourism > ol {
-			font-size: 13px;
+	.ol {
+		display: flex;
+		flex-direction: column;
+		padding-top: 60px;
 	}
 
-	ol > li {
-			font-size: 13px;
+	ol {
+		padding-top: 50px;
+		padding-left: 40px;
 	}
-
+	
 	ul {
-			font-size: 13px;
+		margin-bottom: 20px;
+		padding-top: 50px;
+		height: 300px;
+		width: 300px;
+		text-align: center;
+		background-color: rgb(255, 255, 255);
+		border-radius: 20px;
+	}
+
+	/* .li--2 {
+		margin-left: 100px;
+	} */
+
+	.li {
+		margin-left: 20px;
+		padding-top: 12px;
+	}
+
+	li {
+		list-style-type: none;
+	}
+	
+	ol > li {
+	background-color: rgb(255, 255, 255);
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
 	}
 
 	.form--box {
-			padding: 10px;
+		width: 400px; /* Увеличено для лучшего отображения на планшетах */
+		height: 400px;
+		padding: 15px;
 	}
 
 	.form--box h3 {
-			font-size: 1.2em;
+		font-size: 1.5em;
 	}
 
 	.inputbox input {
-			font-size: 0.8em;
+		font-size: 0.9em;
 	}
 
 	.inputbox label {
-			font-size: 0.8em;
+		font-size: 0.9em;
 	}
 
 	button {
-			font-size: 0.8em;
+		font-size: 0.9em;
 	}
 
 	.registr {
-			font-size: 0.8em;
+		font-size: 0.9em;
 	}
-}
+} 

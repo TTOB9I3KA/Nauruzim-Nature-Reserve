@@ -1,9 +1,26 @@
 const table = document.getElementById("table");
 const buttonList = [];
 
+let serverUrl = undefined;
+
+const fetchConfig = async () => {
+	try {
+		const response = await fetch('/config.json');
+		if (!response.ok) {
+		  throw new Error('Failed to load configuration');
+		}
+		const config = await response.json();
+		serverUrl = config.BASE_URL;
+		await fetchAndProcessRows();
+	} 
+	catch (error) {
+		console.error('Error fetching configuration:', error.message);
+	}
+}
+
 const sendDeleteReq = async (id) => {
   try {
-    const response = await fetch(`http://localhost:3000/database?deleteTour=${id}`, {
+    const response = await fetch(`${serverUrl}/database?deleteTour=${id}`, {
       method: 'POST'
     });
     if (response.status === 200) {
@@ -69,7 +86,7 @@ const clearTable = () => {
 const fetchAndProcessRows = async() => {
 	clearTable()
 
-	fetch('http://localhost:3000/database/records')
+	fetch(`${serverUrl}/database/records`)
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -102,4 +119,5 @@ const regBtns = () => {
 	})
 }
 
-fetchAndProcessRows();
+// start from fetching config from server
+fetchConfig();

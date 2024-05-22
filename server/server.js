@@ -30,14 +30,25 @@ app.use(session({
 require('./login.js')(app);
 require('./tourRegist.js')(app);
 
+// pass config to client, so it can make requests to our server
+// we can also pass some other data to client
+app.get('/config.json', async (req, res) => {
+	if (!req.session.admin) {
+		res.sendStatus(401);
+		return;
+	}
+	// set status code to ok, because client awaits for it
+	res.status = 200;
+	const filePath = path.join(__dirname, 'config.json');
+	res.sendFile(filePath);
+})
+
 app.post('/database', async (req, res) => {
 	if (!req.session.admin) {
-		console.log('UNatew')
 		res.sendStatus(401);
 		return;
 	}
 	try {
-		console.log('Did')
 		const id = req.query.deleteTour;
 		if (!id) {
 			res.sendStatus(404);

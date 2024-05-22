@@ -15,34 +15,142 @@ body {
 }
 
 @keyframes slideInFromTop {
-  0% {
-    transform: translateY(-50px); /* Translate upwards */
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+	0% {
+			opacity: 0;
+			transform: translateY(-100%);
+	}
+	100% {
+			opacity: 1;
+			transform: translateY(0);
+	}
 }
 
 @keyframes slideInFromBottom {
-  0% {
-    transform: translateY(50px); /* Translate downwards */
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
+/* Apply animations to elements */
 .welcome-text-animation {
-  opacity: 1;
+	opacity: 0;
 }
+
+.welcome-text-animation.animate {
+	animation: slideInFromTop 1s ease-out forwards;
+}
+
 .welcome-button-animation {
-	opacity: 1;
-	transition: opacity 0.5s ease; /* Smooth transition for opacity */
+	opacity: 0;
 }
+
+.welcome-button-animation.animate {
+	animation: slideInFromBottom 1s ease-out forwards;
+}
+
+/* Define animations */
+/* Define animations */
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(250px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.slide-in-top {
+    animation: slideInFromTop 1s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 1s ease-out forwards;
+} 
+
+
+
+
+@keyframes slideInFromBottom {
+	0% {
+			opacity: 0;
+			transform: translateY(50px);
+	}
+	100% {
+			opacity: 1;
+			transform: translateY(0);
+	}
+}
+
+.animate-on-scroll {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.animate {
+	animation: slideInFromBottom 1s ease-out forwards;
+}
+
+@keyframes slideInFromRight {
+	0% {
+			opacity: 0;
+			transform: translateY(150px);
+	}
+	100% {
+			opacity: 1;
+			transform: translateX(0);
+	}
+}
+
+.animate-on-scroll {
+	opacity: 0;
+	transform: translateY(150px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate {
+	animation: slideInFromRight 1s ease-out forwards;
+}
+
 
 .header {
 	position: relative;
@@ -227,6 +335,7 @@ h2 {
 #history p {
 	font-weight: normal;
 	font-size: 15px;
+	padding-bottom: 100px;
 }
 
 .history {
@@ -244,6 +353,8 @@ h2 {
 	left: 150px;
 	z-index: 1;
 	cursor: pointer;
+	width: 500px;
+	height: 500px;
 }
 
 #tourism {
@@ -473,8 +584,8 @@ h3 {
 	}
 
 	.img {
-		max-width: 700px;
-		max-height: 700px;
+		max-width: 500px;
+		max-height: 500px;
 		position: relative;
 		cursor: pointer;
 	}
@@ -562,14 +673,17 @@ h3 {
 	.img-11 {
 		width: 600px;
 		height: 600px;
-		background-image: url('./image/card/ястреб.png');
-		background-size: cover;
 		position: relative;
-		left: 100px;
-		top: 30px;
+		left: 300px;
+		top: 50px;
 		float: left;
 	}
 
+	iframe {
+		width: 600px;
+		height: 600px;
+		float: left;
+	}
 
 	.sur-img {
 		width: 600px;
@@ -582,7 +696,8 @@ h3 {
 
 	#h4 {
 		font-size: 50px;
-		padding-top: 500px;
+		position: relative;
+		right: 50%;
 		text-align: center;
 		color: white;
 		z-index: 2;

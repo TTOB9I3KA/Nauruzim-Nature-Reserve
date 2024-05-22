@@ -5,9 +5,9 @@ const dbPath = path.resolve(__dirname, 'database.db');
 
 const db = new sqlite3.Database(dbPath, (err) => {
 	if (err) {
-			console.error('Could not connect to database', err);
+			console.error('(db): Could not connect to database', err);
 	} else {
-			console.log('Connected to database');
+			console.log('(db): Connected to sqlite database');
 	}
 });
 
@@ -45,11 +45,11 @@ const addTour = async (name, phone, booking_date, end_date) => {
 
 	db.run(sql, values, (err) => {
 			if (err) {
-					console.error('Error inserting tour record:', err.message);
+					console.error('(db): Error inserting tour record:', err.message);
 					return;
 			}
 
-			console.log(`Inserted ${name}:${phone} tour record to db`);
+			console.log(`(db): Inserted ${name}:${phone} tour record to db`);
 	});
 }
 
@@ -59,10 +59,10 @@ const rmTourId = async(id) => {
 
 	db.run(sql, values, (err) => {
 		if (err) {
-			console.error(`Error deleting tour record: ${err.message}`);
+			console.error(`(db): Error deleting tour record: ${err.message}`);
 			return;
 		}
-		console.log(`Deleted tour record with id: ${id}`);
+		console.log(`(db): Deleted tour record with id: ${id}`);
 	});
 }
 
@@ -72,10 +72,10 @@ const rmTourByPhone = async(phone) => {
 
 	db.run(sql, values, (err) => {
 		if (err) {
-			console.error(`Error deleting tour record: ${err.message}`);
+			console.error(`(db): Error deleting tour record: ${err.message}`);
 			return;
 		}
-		console.log(`Deleted all tour records with phone: ${phone}`);
+		console.log(`(db): Deleted all tour records with phone: ${phone}`);
 	});
 }
 
@@ -85,10 +85,10 @@ const addAdmin = async(email, password) => {
 
 	db.run(sql, values, (err) => {
 		if (err) {
-			console.error(`Failed to insert admin record: ${err.message}`);
+			console.error(`(db): Failed to insert admin record: ${err.message}`);
 			return;
 		}
-		console.log(`Inserted admin record.`);
+		console.log(`(db): Inserted admin record.`);
 	})
 }
 const rmAdmin = async (id) => {
@@ -97,10 +97,10 @@ const rmAdmin = async (id) => {
 
 	db.run(sql, values, (err) => {
 		if (err) {
-			console.error(`Failed to delete admin record ${err.message}`);
+			console.error(`(db): Failed to delete admin record ${err.message}`);
 			return;
 		}
-		console.log(`Deleted admin record with id: ${id}`);
+		console.log(`(db): Deleted admin record with id: ${id}`);
 	})
 }
 const getAdmin = async (email, password) => new Promise((resolve, reject) => {

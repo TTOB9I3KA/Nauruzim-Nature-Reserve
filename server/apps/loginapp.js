@@ -1,4 +1,4 @@
-const { getAdmin } = require("./database/sqlite");
+const { getAdmin } = require("../database/sqlite.js");
 
 module.exports = function(server) {
 	

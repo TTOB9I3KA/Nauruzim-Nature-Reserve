@@ -18,12 +18,13 @@ const dbInit = () => {
 
 const createToursTable = () => {
 	db.run(`
-		CREATE TABLE IF NOT EXISTS bookings (
+		CREATE TABLE IF NOT EXISTS tours (
     	id INTEGER PRIMARY KEY AUTOINCREMENT,
     	name TEXT NOT NULL,
     	phone TEXT NOT NULL,
     	booking_date TEXT NOT NULL,
-    	end_date TEXT NOT NULL
+    	end_date TEXT NOT NULL,
+			record_date TEXT NOT NULL
 		);
 	`);
 };
@@ -39,8 +40,8 @@ const createAdminsTable = () => {
 };
 
 const addTour = async (name, phone, booking_date, end_date) => {
-	const sql = 'INSERT INTO tours (name, phone, booking_date, end_date) VALUES (?, ?, ?, ?)';
-	const values = [name, phone, booking_date, end_date];
+	const sql = 'INSERT INTO tours (name, phone, booking_date, end_date, record_date) VALUES (?, ?, ?, ?, ?)';
+	const values = [name, phone, booking_date, end_date, new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })];
 
 	db.run(sql, values, (err) => {
 			if (err) {
@@ -142,6 +143,19 @@ const getTourPhone = async (phone) => new Promise((resolve, reject) => {
 	})
 })
 
+const getAllTours = async () => new Promise((resolve, reject) => {
+	const sql = `SELECT * FROM tours;`;
+
+	db.all(sql, (err, rows) => {
+		if (err) {
+			reject(new Error(err.message));
+			return;
+		}
+
+		resolve(rows);
+	})
+})
+
 
 module.exports = {
 	dbInit, 
@@ -152,5 +166,6 @@ module.exports = {
 	addAdmin, 
 	rmAdmin, 
 	rmTourId, 
-	rmTourByPhone
+	rmTourByPhone,
+	getAllTours
 };

@@ -4,10 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Наурзумский заповедник</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	
 	<header class="header">
 		<div class="header--nav">
 		</div>
@@ -91,27 +90,27 @@
 		</section>
 				<section id="sign--up">
 						<div class="form--box">
-								<form action="">
+								<form action="/tour/regist" method="POST">
 										<h3>Запись на тур</h3>
 										<div class="inputbox">
-												<input type="text" required>
+												<input type="text" name="name" required>
 												<label for="">Имя</label>
 										</div>
 										<div class="inputbox">
-												<input type="tel" required>
+												<input type="tel" name="phone" required>
 												<label for="">Телефон</label>
 										</div>
 										<div class="inputbox input__box">
-												<input type="date" required>
+												<input type="date" name="booking" required>
 												<label for="">Дата записи</label>
 										</div>
 										<div class="inputbox">
-												<input type="date" required>
+												<input type="date" name="end" required>
 												<label for="">До какого числа</label>
 										</div>
-										<button id="btn">Записаться</button>
+										<input type="submit" id="btn">Записаться</>
 										<div class="registr">
-												<p>Ещё не зарегестрированы? <a href="./registration/index.html">Регистрация</a></p>
+												<p>Вход <a href="./login/login.html">Регистрация</a></p>
 										</div>
 								</form>
 						</div>

@@ -28,7 +28,7 @@ body {
 @keyframes slideInFromBottom {
   0% {
     transform: translateY(50px); /* Translate downwards */
-    opacity: 0;
+    opacity: 1;
   }
   100% {
     transform: translateY(0);
@@ -37,10 +37,10 @@ body {
 }
 
 .welcome-text-animation {
-  opacity: 0;
+  opacity: 1;
 }
 .welcome-button-animation {
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
 

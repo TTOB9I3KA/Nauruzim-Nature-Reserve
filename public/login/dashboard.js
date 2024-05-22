@@ -119,5 +119,5 @@ const regBtns = () => {
 	})
 }
 
-// start from fetching config from server
+// fetch config from server, so we can continue requesting to it inside js
 fetchConfig();

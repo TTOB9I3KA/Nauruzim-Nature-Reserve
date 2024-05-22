@@ -1,35 +1,38 @@
+// server imports
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const fsp = require('node:fs/promises');
-const bodyParser = require('body-parser');
-const app = express();
-const cors = require('cors');
 const session = require("express-session")
-const { dbInit, getAllTours, rmTourId } =  require("./database/sqlite.js");
+const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const port = 3000;
-const configPath = path.join(__dirname, 'serverConfig.json');
+// helpers imports
+const path = require('path');
+const fsp = require('node:fs/promises');
 
+// database imports
+const { dbInit } =  require("./database/sqlite.js");
+const { serverMainDirectory } = require('./server_utilities.js');
 
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '..', 'public')));
-//app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  secret: 'adminSecret',
-  resave: false,
-  saveUninitialized: true,
-  //cookie: { secure: true }
-}))
+const configPath = path.join(serverMainDirectory, 'server', 'serverConfig.json');
+const configureServer = () => {
+	const secure = !global.serverConfig.development
+	const proxy = !global.serverConfig.development ? 1 : 0;
+	const sessionCfg = session({
+		secret: global.serverConfig.secret,
+		resave: false,
+		saveUninitialized: true,
+		cookie: {secure: secure}
+	})
+	// configure session middleware
+	app.set('trust proxy', proxy);
+	app.use(sessionCfg);
 
-const fileExists = (filePath) => {
-    return new Promise((resolve) => {
-        fs.access(filePath, fs.constants.F_OK, (err) => {
-            resolve(!err);
-        });
-    });
-};
+	// setup cors for client-server fetching
+	app.use(cors());
+
+	// middleware for parsing http body
+	app.use(bodyParser.urlencoded({ extended: false }));
+} 
 
 const loadConfig = async () => {
 	try {
@@ -44,55 +47,20 @@ const loadConfig = async () => {
 	console.log(`(root): Configration file loaded: ${split[split.length-1]}`)
   };
 
-// include other handlers
-require('./apps/loginapp.js')(app);
-require('./apps/tourapp.js')(app);
-require('./apps/dbapp.js')(app);
-
-// pass config to client, so it can make requests to our server
-// we can also pass some other data to client
-app.get('/config.json', async (req, res) => {
-	if (!req.session.admin) {
-		res.sendStatus(401);
-		return;
-	}
-	// set status code to ok, because client awaits for it
-	res.status = 200;
-	const filePath = path.join(__dirname, 'clientConfig.json');
-	res.sendFile(filePath);
-})
-
-app.get('/admin/dashboard.*', async (req, res) => {
-	if (!req.session.admin) {
-		res.sendStatus(401);
-		return;
-	}
-
-	const ext = req.params[0];
-	const filePath = path.join(__dirname, '..', 'public', 'login', `dashboard.${ext}`);
-	res.sendFile(filePath);
-})
-
-// Wildcard route to serve image files from 'public', 'card', and 'icon' directories
-app.get('/*', async (req, res) => {
-    const requestedPath = req.params[0];
-    const filePaths = [
-        path.join(__dirname,'..','public', requestedPath),
-        path.join(__dirname, '..', requestedPath),
-    ];
-
-    for (const filePath of filePaths) {
-        if (await fileExists(filePath)) {
-            return res.sendFile(filePath);
-        }
-    }
-
-    res.status(404).send('(root): File not found');
-});
 
 // load configuration before listening
 loadConfig().then(() => {
-	// Start the server
+	// Configure server instance
+	configureServer();
+	
+	// include other handlers
+	require('./apps/loginapp.js')(app);
+	require('./apps/tourapp.js')(app);
+	require('./apps/dbapp.js')(app);
+	require('./apps/serverapp.js')(app); // should be the last, because defines "one for everything" handler to handle images
+
+	app.use(express.static(path.join(serverMainDirectory, 'public'))); // connect static middleware after loginapp, so it can catch a route
+
 	app.listen(global.serverConfig.port, () => {
 		console.log(`(root): Server is running on http://localhost:${global.serverConfig.port}`);
 		dbInit();

@@ -39,7 +39,7 @@ app.get('/config.json', async (req, res) => {
 	}
 	// set status code to ok, because client awaits for it
 	res.status = 200;
-	const filePath = path.join(__dirname, 'config.json');
+	const filePath = path.join(__dirname, 'clientConfig.json');
 	res.sendFile(filePath);
 })
 

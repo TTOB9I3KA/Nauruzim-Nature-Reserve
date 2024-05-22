@@ -54,7 +54,6 @@ module.exports = function (server) {
 
         for (const filePath of filePaths) {
             if (await fileExists(filePath)) {
-                console.log(`${filePath}`);
                 return res.sendFile(filePath);
             }
         }

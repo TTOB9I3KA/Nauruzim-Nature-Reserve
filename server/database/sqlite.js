@@ -41,7 +41,7 @@ const createAdminsTable = () => {
 
 const addTour = async (name, phone, booking_date, end_date) => {
 	const sql = 'INSERT INTO tours (name, phone, booking_date, end_date, record_date) VALUES (?, ?, ?, ?, ?)';
-	const values = [name, phone, booking_date, end_date, new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })];
+	const values = [name, phone, booking_date, end_date, new Date().toLocaleDateString('ru-RU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })];
 
 	db.run(sql, values, (err) => {
 			if (err) {

@@ -5,8 +5,8 @@ const {serverMainDirectory} = require('../server_utilities.js');
 module.exports = function(server) {
 	// custom handler which avoids static files
 	server.get('/login/login.html', async (req, res) => {
-		if (req.session.admin && req.session.remember) {
-			console.log(`Admin logged in as remember me`);
+		if (req.session.admin && req.session.remember && req.session.adminEmail) {
+			console.log(`Admin logged in as ${req.session.adminEmail}`);
 			res.redirect('/admin/dashboard.html');
 			return;
 		}
@@ -26,6 +26,7 @@ module.exports = function(server) {
 			return;
 		}
 		req.session.admin = true;
+		req.session.adminEmail = email;
 		console.log(remember);
 		req.session.remember = remember === 'on';
 		console.log(`Admin logged with account ${admin.email}`);

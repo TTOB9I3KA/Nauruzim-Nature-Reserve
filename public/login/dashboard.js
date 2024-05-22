@@ -51,11 +51,11 @@ const addRow = (id, name, phone, booking, end, record_date) => {
 	newRow.appendChild(cellPhone);
 
 	const cellBooking = document.createElement('td');
-	cellBooking.textContent = booking;
+	cellBooking.textContent = new Date(booking).toLocaleDateString('ru-RU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 	newRow.appendChild(cellBooking);
 
 	const cellEnd = document.createElement('td');
-	cellEnd.textContent = end;
+	cellEnd.textContent = new Date(end).toLocaleDateString('ru-RU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 	newRow.appendChild(cellEnd);
 
 	const cellRecordDate = document.createElement('td');

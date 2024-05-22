@@ -21,7 +21,7 @@ module.exports = function (server) {
         }
         // set status code to ok, because client awaits for it
         res.status = 200;
-        const filePath = path.join(serverMainDirectory, 'server', 'clientConfig.json');
+        const filePath = path.join(serverMainDirectory, 'public', 'clientConfig.json');
         res.sendFile(filePath);
     })
 

@@ -1,3 +1,5 @@
+const {getAllTours, rmTourId} = require('../database/sqlite.js');
+
 module.exports = function(server) {
 	
 	server.get("/database/records", async (req, res) => {
@@ -13,7 +15,7 @@ module.exports = function(server) {
         res.end();
     }),
     server.post('/database', async (req, res) => {
-        if (!req.session.admin) {
+        if (!req.session.admin || !req.session.adminEmail) {
             res.sendStatus(401);
             return;
         }
@@ -23,7 +25,7 @@ module.exports = function(server) {
                 res.sendStatus(404);
                 return;
             }
-            console.log(id);
+            console.log(`(root): Admin with email ${req.session.adminEmail} deleted record with ID: ${id}`)
             await rmTourId(id);
             res.sendStatus(200);
         }

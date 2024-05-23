@@ -25,6 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	setupAnimationReset(signUpButton, 'slideInFromBottom');
 });
 
+function toggleDropdown() {
+	document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+	if (!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			for (var i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+					}
+			}
+	}
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 	const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');

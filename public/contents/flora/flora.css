@@ -1,0 +1,85 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #e3ca9c;
+	overflow-x: hidden;
+}
+
+h1 {
+	text-align: center;
+	font-size: 40px;
+	color: aliceblue;
+}
+
+.header {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flora-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flora {
+	display: flex;
+	flex-direction: row;
+	gap: 57px;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	padding: 50px 0;
+	width: 80vw; /* Adjust width to control how many cards are visible */
+}
+
+.card-1 {
+	min-width: 400px;
+	height: 600px;
+	background-color: #b89c68;
+}
+
+.img {
+	width: 400px;
+	height: 350px;
+}
+
+#p-h {
+	text-align: center;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.text {
+	color: #2a3b42;
+}
+
+.lower {
+	padding-left: 10px;
+	font-size: 19px;
+	font-weight: 600;
+}
+
+.scroll-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #b89c68;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 1000;
+	font-size: 24px;
+	color: #2a3b42;
+}
+
+.scroll-btn.left {
+	left: 10px;
+}
+
+.scroll-btn.right {
+	right: 10px;
+}

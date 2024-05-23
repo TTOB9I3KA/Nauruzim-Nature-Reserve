@@ -503,6 +503,55 @@ h3 {
 
 
 @media (min-width: 1200px) {
+
+	/* Style the drop-down button */
+.dropbtn {
+	background-color: #2e2e2ea9;
+	border-radius: 20px;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+/* Container needed to position the drop-down content */
+.dropdown {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 2;
+	display: inline-block;
+}
+
+/* Hide the drop-down content by default */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+/* Links inside the drop-down */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of drop-down links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+/* Show the drop-down menu on button click */
+.show {
+	display: block;
+}
+
 	html, body {
     margin: 0;
     padding: 0;

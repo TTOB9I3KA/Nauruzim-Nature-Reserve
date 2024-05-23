@@ -10,8 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "docxtemplater": "^3.47.3",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "sqlite3": "^5.1.7"
+    "pizzip": "^3.1.7",
+    "sqlite3": "^5.1.7",
+    "stream": "^0.0.2"
   }
 }

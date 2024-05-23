@@ -1,4 +1,6 @@
 const { addTour, getTourPhone } = require("../database/sqlite.js");
+const {loadWord} = require('../server_utilities.js');
+const {Readable} = require('stream');
 
 const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000;
 
@@ -28,11 +30,20 @@ module.exports = function(server) {
 		}
 		await addTour(name, phone, booking, end);
 		
-		if (referer) {
-			res.redirect(referer);
-			return;
-		}
-		// fallback path
-		res.redirect("/main.html")
+		// send docx file with ticket
+		const newRecord = await getTourPhone(phone);
+		const content = await loadWord(newRecord.id, name, phone, booking, end, newRecord.record_date);
+		const stream = new Readable({
+			read() {
+				this.push(content);
+				this.push(null);
+			}
+		});
+		res.set({
+            'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'Content-Disposition': `attachment; filename="ticket${newRecord.id}.docx"`,
+            'Content-Length': content.length
+        });
+        stream.pipe(res);
 	})
 }

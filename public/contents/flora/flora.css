@@ -1,85 +1,117 @@
 body {
-	margin: 0;
-	padding: 0;
-	background-color: #e3ca9c;
-	overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #e3ca9c;
+    overflow-x: hidden;
 }
+
 
 h1 {
-	text-align: center;
-	font-size: 40px;
-	color: aliceblue;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(25, 40, 53);
+    margin-top: 20px; /* Добавлено для отступа сверху */
 }
 
-.header {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.header--main {
+    width: 100%;
+    display: flex;
+    align-items: flex-end; /* Изменено с center на flex-end */
+    justify-content: center;
+    padding-bottom: 20px; /* Добавлено для отступа снизу */
+    height: calc(100vh - 80px); /* Уменьшено пространство для заголовка */
 }
 
 .flora-container {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Добавлено для растягивания контейнера на всю ширину */
 }
 
 .flora {
-	display: flex;
-	flex-direction: row;
-	gap: 57px;
-	overflow-x: auto;
-	scroll-behavior: smooth;
-	padding: 50px 0;
-	width: 80vw; /* Adjust width to control how many cards are visible */
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Уменьшил расстояние между карточками */
+    overflow-x: auto; /* Добавлено, чтобы контейнер прокручивался */
+    scroll-snap-type: x mandatory; /* Прокрутка выравнивается по карточкам */
+    width: calc(100% - 40px); /* Отнимаем от ширины 40px, чтобы учесть расстояния между карточками */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 20px 0; /* Добавил отступы сверху и снизу для красоты */
 }
 
 .card-1 {
-	min-width: 400px;
-	height: 600px;
 	background-color: #b89c68;
+    min-width: calc((100% / 3) - 20px); /* Расчет минимальной ширины карточки, учитывая расстояние между ними */
+    scroll-snap-align: start; /* Выравнивание скролла по карточкам */
 }
 
 .img {
-	width: 400px;
-	height: 350px;
+    width: 100%;
+    height: 450px;
 }
-
 #p-h {
-	text-align: center;
-	font-size: 25px;
-	font-weight: 600;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
 }
 
 .text {
-	color: #2a3b42;
+    color: #2a3b42;
 }
 
 .lower {
-	padding-left: 10px;
-	font-size: 19px;
-	font-weight: 600;
+    padding-left: 10px;
+    font-size: 19px;
+    font-weight: 600;
 }
 
 .scroll-btn {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background-color: #b89c68;
-	border: none;
-	padding: 10px;
-	cursor: pointer;
-	z-index: 1000;
-	font-size: 24px;
-	color: #2a3b42;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #b89c68;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 24px;
+    color: #2a3b42;
 }
 
 .scroll-btn.left {
-	left: 10px;
+    left: 30px;
 }
 
 .scroll-btn.right {
-	right: 10px;
+	width: 200px;
+    right: 30px;
+}
+.scroll-btn.left {
+    margin-right: 20px; /* Отступ справа для кнопки влево */
+}
+
+.scroll-btn.right {
+    margin-left: 20px; /* Отступ слева для кнопки вправо */
+}
+
+.text-1 {
+	font-weight: 700;
+	padding-left: 20px;
+	font-size: 20px;
+}
+
+.left {
+	height: 30px;
+	width: 30px;
+	background-color: rgb(255, 140, 0);
+	margin-right: 50px;
+}
+
+.right {
+	height: 30px;
+	width: 30px;
+	background-color: rgb(255, 140, 0);
+	margin-left: 50px;
 }

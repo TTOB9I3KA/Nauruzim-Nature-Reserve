@@ -544,30 +544,33 @@ h3 {
 	
 	#eco-tourism p {
 		font-weight: normal;
-		font-size: 20px;
+		font-size: 17px;
 		padding-left: 20px;
 		position: relative;
-		bottom: 100px;
-}
+		bottom: 180px;
+	}
 	
 	.eco-tourism {
 		position: relative;
 		top: 150px;
 	}
 	
-	.img-1 {
-		width: 500px;
-		height: 500px;
+  .img-1 {
+		width: 400px;
+		height: 400px;
 		position: relative;
 		left: 150px;
-		bottom: 100px;
+		/* bottom: 250px; */
 		z-index: 1;
 		cursor: pointer;
+		top: -80px;
 }
 
-	#history p{
+	#history p {
 		font-weight: normal;
 		font-size: 18px;
+		position: relative;
+		top: -150px;
 	}
 
 	#history{
@@ -584,9 +587,10 @@ h3 {
 	}
 
 	.img {
-		max-width: 500px;
-		max-height: 500px;
+		max-width: 400px;
+		max-height: 400px;
 		position: relative;
+		bottom: 1010px;
 		cursor: pointer;
 	}
 
@@ -596,13 +600,15 @@ h3 {
 		padding-top: 50px;
 		min-height: 100vh;
 		width: 100%;
-		background-size: cover;
+		
+		background-color: #e3ca9c;
 	}
 
 	.img {
-		max-width: 498px;
-		max-height: 500px;
+		max-width: 400px;
+		max-height: 400px;
 		position: relative;
+		top: 5px;
 		cursor: pointer;
 }
 	#tourism {
@@ -679,11 +685,7 @@ h3 {
 		float: left;
 	}
 
-	iframe {
-		width: 600px;
-		height: 600px;
-		float: left;
-	}
+
 
 	.sur-img {
 		width: 600px;
@@ -738,54 +740,13 @@ h3 {
 		color: floralwhite;
 	}
  
-
-	/* footer {
-		width: 100%;
-		height: 30vh;
-		background-color: #0000008c;
-	}
-
-	.icon-word {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		width: 50%;
-	}
-
-	b {
+	iframe {
 		position: relative;
-		left: 20px;
-		bottom: 10px;
-		font-size: 40px;
+		top: 100px;
+		right: 130px;
+		width: 400px;
+		height: 400px;
 	}
-
-	#b {
-		position: relative;
-		bottom: 40px;
-	}
-
-	#p {
-		position: relative;
-		bottom: 30px;
-		left: 90px;
-	}
-
-	.date--p {
-		position: relative;
-		left: 80px;
-		font-size: 20px;
-	}
-
-	.date-icon--2 {
-		position: relative;
-		top: 40px;
-	}
-
-	.date-icon {
-		width: 70px;
-		height: 70px;
-	} */
 }
 
 @media (min-width: 768px) and (max-width:1199px){

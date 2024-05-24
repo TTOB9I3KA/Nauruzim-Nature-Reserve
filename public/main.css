@@ -519,7 +519,16 @@ h3 {
 }
 
 
-@media (min-width: 1200px) {
+/* @media(min-width: 1920px) {
+	#history p {
+		font-weight: normal;
+		font-size: 28px;
+		position: relative;
+		top: -150px;
+}
+} */
+
+@media (min-width: 1200px){
 
 	/* Style the drop-down button */
 .dropbtn {
@@ -611,7 +620,7 @@ h3 {
 	#eco-tourism p {
 		font-weight: normal;
 		font-weight: normal;
-		font-size: 16px;
+		font-size: 19px;
 		padding-left: 20px;
 		position: relative;
 		bottom: 180px;
@@ -635,7 +644,7 @@ h3 {
 
 	#history p {
 		font-weight: normal;
-		font-size: 18px;
+		font-size: 19px;
 		position: relative;
 		top: -150px;
 	}
@@ -1105,9 +1114,6 @@ h3 {
 		right: 130px;
 		width: 400px;
 		height: 400px;
-	}
-	.custom-button {
-
 	}
 } 
 /* @media (min-width: 768px) and (max-width:1199px){ 

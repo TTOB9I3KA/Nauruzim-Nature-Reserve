@@ -1,8 +1,8 @@
 const leftButton = document.querySelector('.scroll-btn-left');
 const rightButton = document.querySelector('.scroll-btn-right');
+const floraContainer = document.querySelector('.flora');
 
 leftButton.addEventListener('click', function() {
-    const floraContainer = document.querySelector('.flora');
     floraContainer.scrollBy({
         left: -500,
         behavior: 'smooth'
@@ -10,7 +10,6 @@ leftButton.addEventListener('click', function() {
 });
 
 rightButton.addEventListener('click', function() {
-    const floraContainer = document.querySelector('.flora');
     floraContainer.scrollBy({
         left: 500,
         behavior: 'smooth'
@@ -18,56 +17,42 @@ rightButton.addEventListener('click', function() {
 });
 
 function toggleDropdown() {
-	document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("myDropdown").classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-	if (!event.target.matches('.dropbtn')) {
-			var dropdowns = document.getElementsByClassName("dropdown-content");
-			for (var i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-							openDropdown.classList.remove('show');
-					}
-			}
-	}
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
 }
 
+// Проверяем видимость кнопок прокрутки при загрузке страницы
+window.onload = function() {
+    checkScrollButtonsVisibility();
+};
 
+// Проверяем видимость кнопок прокрутки при прокрутке контейнера
+floraContainer.addEventListener('scroll', checkScrollButtonsVisibility);
 
+function checkScrollButtonsVisibility() {
+    const maxScrollLeft = floraContainer.scrollWidth - floraContainer.clientWidth;
 
+    if (floraContainer.scrollLeft <= 0) {
+        leftButton.disabled = true;
+    } else {
+        leftButton.disabled = false;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function scrollLeft() {
-// 	console.log('GGG')
-//     const floraContainer = document.getElementById('flora');
-//     floraContainer.scrollLeft({
-//         left: -500, // Adjust the scroll distance as needed
-//         behavior: 'smooth'
-//     });
-// }
-
-// function scrollRight() {
-// 	console.log('JJJ')
-//     const floraContainer = document.getElementById('flora');
-//     floraContainer.scrollBy({
-//         left: 500, // Adjust the scroll distance as needed
-//         behavior: 'smooth'
-//     });
-// }
+    if (floraContainer.scrollLeft >= maxScrollLeft) {
+        rightButton.disabled = true;
+    } else {
+        rightButton.disabled = false;
+    }
+}

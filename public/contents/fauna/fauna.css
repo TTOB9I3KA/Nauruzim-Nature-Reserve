@@ -75,7 +75,7 @@ h1 {
 	height: calc(100vh - 200px); /* Уменьшено пространство для заголовка */
 }
 
-.flora-container {
+.fauna-container {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -84,7 +84,7 @@ h1 {
 	margin-top: 210px; /* Добавлено для отступа сверху */
 }
 
-.flora{
+.fauna{
 	display: flex;
 	flex-direction: row;
 	gap: 20px;

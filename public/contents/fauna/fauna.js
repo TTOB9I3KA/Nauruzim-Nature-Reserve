@@ -2,7 +2,7 @@ const leftButton = document.querySelector('.scroll-btn-left');
 const rightButton = document.querySelector('.scroll-btn-right');
 
 leftButton.addEventListener('click', function() {
-    const floraContainer = document.querySelector('.flora');
+    const floraContainer = document.querySelector('.fauna');
     floraContainer.scrollBy({
         left: -500,
         behavior: 'smooth'
@@ -10,7 +10,7 @@ leftButton.addEventListener('click', function() {
 });
 
 rightButton.addEventListener('click', function() {
-    const floraContainer = document.querySelector('.flora');
+    const floraContainer = document.querySelector('.fauna');
     floraContainer.scrollBy({
         left: 500,
         behavior: 'smooth'
